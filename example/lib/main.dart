@@ -55,12 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
               ),
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(20),
             ),
             Text(
               _currentScore == null
                   ? "No Score Selected"
-                  : "Select Score $_currentScore",
+                  : "Selected Score $_currentScore",
             ),
           ],
         ),
