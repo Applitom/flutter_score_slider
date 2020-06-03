@@ -1,7 +1,6 @@
 name: flutter_score_slider
 description: A new Flutter Scores Slider.
 version: 1.0.0
-author: Applitom (Tomer Shalom) <http://applitom.com>
 homepage: https://github.com/Applitom/flutter_score_slider
 
 environment:
