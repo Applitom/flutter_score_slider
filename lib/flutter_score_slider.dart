@@ -18,9 +18,9 @@ class ScoreSlider extends StatefulWidget {
     this.score,
     this.onScorChanged,
     this.height = 30,
-    this.thumbColor = Colors.blueGrey,
-    this.scoreDotColor = Colors.white,
-    this.backgroundColor = Colors.black,
+    this.thumbColor,
+    this.scoreDotColor,
+    this.backgroundColor,
   })  : assert(maxScore != null),
         assert(minScore < maxScore);
 
@@ -54,8 +54,8 @@ class ScoreSliderState extends State<ScoreSlider> {
           child: Center(
             child: CircleAvatar(
               backgroundColor: i == _currentScore
-                  ? this.widget.thumbColor
-                  : this.widget.scoreDotColor,
+                  ? this.widget.thumbColor ?? Theme.of(context).sliderTheme.thumbColor
+                  : this.widget.scoreDotColor ?? Theme.of(context).sliderTheme.activeTickMarkColor,
               radius: currentRadius,
             ),
           ),
@@ -100,7 +100,7 @@ class ScoreSliderState extends State<ScoreSlider> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(100)),
-                color: this.widget.backgroundColor,
+                color: (this.widget.backgroundColor ?? Theme.of(context).backgroundColor) ,
               ),
               height: this.widget.height,
               child: Stack(

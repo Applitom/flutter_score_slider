@@ -11,10 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -48,6 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: ScoreSlider(
                 maxScore: 10,
+                backgroundColor: Colors.black,
+                thumbColor: Colors.blue,
+                scoreDotColor: Colors.white,
                 onScorChanged: (newScore) {
                   setState(() {
                     _currentScore = newScore;
