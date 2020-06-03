@@ -10,12 +10,11 @@ class ScoreSlider extends StatefulWidget {
   final Color thumbColor;
   final Color scoreDotColor;
   final Color backgroundColor;
-
   final Function(int value) onScorChanged;
 
   ScoreSlider({
     @required this.maxScore,
-    @required this.minScore,
+    this.minScore = 0,
     this.score,
     this.onScorChanged,
     this.height = 30,
@@ -23,7 +22,7 @@ class ScoreSlider extends StatefulWidget {
     this.scoreDotColor = Colors.white,
     this.backgroundColor = Colors.black,
   })  : assert(maxScore != null),
-        assert(minScore != null);
+        assert(minScore < maxScore);
 
   @override
   State<StatefulWidget> createState() => ScoreSliderState();
