@@ -2,6 +2,26 @@ library flutter_score_slider;
 
 import 'package:flutter/material.dart';
 
+/// ScoreSlider
+/// A Custom Slider componente that mainly used for selecting a Score.
+/// You can set a minimum and maximum score value and current score.
+/// Current score can also be null so the user can choose the score without and default score entered.
+/// 
+/// Example
+/// ```dart
+/// ScoreSlider(
+///   maxScore: 10,
+///   backgroundColor: Colors.black,
+///   thumbColor: Colors.blue,
+///   scoreDotColor: Colors.white,
+///   onScorChanged: (newScore) {
+///                     setState(() {
+///                       _currentScore = newScore;
+///                     });
+///                },
+///   )
+/// ```
+/// 
 class ScoreSlider extends StatefulWidget {
   final double height;
   final int score;
@@ -12,6 +32,18 @@ class ScoreSlider extends StatefulWidget {
   final Color backgroundColor;
   final Function(int value) onScorChanged;
 
+  /// Create ScoreSlider Widgets.
+  /// 
+  /// You must provide [maxScore] parameter with the Maximum score allowed.
+  /// 
+  /// You can set also minimum score by using [minScore] Parameter. the defualt minScore is 0.
+  /// 
+  /// To get a call back when the user select score implement [onScorChanged] callback
+  /// 
+  /// You can customize the Slider colors by using [thumbColor], [scoreDotColor] and [backgroundColor] parameter.
+  /// If not specify, Colors will be take from the default ThemeData.
+  /// 
+  /// The default height of the Slider is 30, in order to set other height, use [height] parameter.
   ScoreSlider({
     @required this.maxScore,
     this.minScore = 0,
