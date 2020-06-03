@@ -2,10 +2,6 @@
 
 A Flutter Score slider widget
 
-## Getting Started
-
-## Features
-
 ## How to use
 
 Add flutter_score_slider to oyou project dependencies

@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Score Slider Demo',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Score Slider Demo'),
     );
   }
 }
@@ -40,9 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Select Score',
-            ),
             Container(
               child: ScoreSlider(
                 maxScore: 10,
@@ -55,12 +52,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
               ),
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.only(
+                left: 20,
+                right: 20,
+              ),
+            ),
+            SizedBox(
+              height: 5,
             ),
             Text(
               _currentScore == null
                   ? "No Score Selected"
-                  : "Selected Score $_currentScore",
+                  : "Selected Score: $_currentScore",
+                  style: Theme.of(context).textTheme.subtitle1,
             ),
           ],
         ),
