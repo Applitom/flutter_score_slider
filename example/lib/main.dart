@@ -43,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: ScoreSlider(
                 maxScore: 10,
-                backgroundColor: Colors.black,
                 thumbColor: Colors.blue,
                 scoreDotColor: Colors.white,
                 onScorChanged: (newScore) {

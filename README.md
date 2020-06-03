@@ -1,6 +1,9 @@
 # Flutter Score Slider
+A Flutter Score slider widget.
 
-A Flutter Score slider widget
+<p align="center">
+  <img src="./screenshots/flutter_score_slider.png">
+</p>
 
 ## How to use
 
