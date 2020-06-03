@@ -7,7 +7,7 @@ A Flutter Score slider widget.
 
 ## How to use
 
-Add flutter_score_slider to oyou project dependencies
+Add flutter_score_slider to your project dependencies
 ```yaml
 dependencies:
   flutter_score_slider: ^1.0.0
