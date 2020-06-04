@@ -1,5 +1,5 @@
 # Flutter Score Slider
-A Flutter Score slider widget.
+Simple & customizable Flutter slider widget for score selections.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Applitom/flutter_score_slider/master/screenshots/flutter_score_slider.png">
