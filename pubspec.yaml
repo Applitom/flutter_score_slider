@@ -1,6 +1,6 @@
 name: flutter_score_slider
 description: Simple & customizable Flutter slider widget for score selections.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Applitom/flutter_score_slider
 
 environment:
