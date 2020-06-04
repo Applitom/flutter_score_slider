@@ -2,7 +2,7 @@
 A Flutter Score slider widget.
 
 <p align="center">
-  <img src="./screenshots/flutter_score_slider.png">
+  <img src="https://raw.githubusercontent.com/Applitom/flutter_score_slider/master/screenshots/flutter_score_slider.png">
 </p>
 
 ## How to use
