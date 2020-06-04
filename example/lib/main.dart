@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 maxScore: 10,
                 thumbColor: Colors.blue,
                 scoreDotColor: Colors.white,
-                onScorChanged: (newScore) {
+                onScoreChanged: (newScore) {
                   setState(() {
                     _currentScore = newScore;
                   });

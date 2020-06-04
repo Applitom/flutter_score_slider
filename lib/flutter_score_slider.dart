@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 ///   backgroundColor: Colors.black,
 ///   thumbColor: Colors.blue,
 ///   scoreDotColor: Colors.white,
-///   onScorChanged: (newScore) {
+///   onScoreChanged: (newScore) {
 ///                     setState(() {
 ///                       _currentScore = newScore;
 ///                     });
@@ -30,7 +30,7 @@ class ScoreSlider extends StatefulWidget {
   final Color thumbColor;
   final Color scoreDotColor;
   final Color backgroundColor;
-  final Function(int value) onScorChanged;
+  final Function(int value) onScoreChanged;
 
   /// Create ScoreSlider Widgets.
   /// 
@@ -38,7 +38,7 @@ class ScoreSlider extends StatefulWidget {
   /// 
   /// You can set also minimum score by using [minScore] Parameter. the defualt minScore is 0.
   /// 
-  /// To get a call back when the user select score implement [onScorChanged] callback
+  /// To get a call back when the user select score implement [onScoreChanged] callback
   /// 
   /// You can customize the Slider colors by using [thumbColor], [scoreDotColor] and [backgroundColor] parameter.
   /// If not specify, Colors will be take from the default ThemeData.
@@ -48,7 +48,7 @@ class ScoreSlider extends StatefulWidget {
     @required this.maxScore,
     this.minScore = 0,
     this.score,
-    this.onScorChanged,
+    this.onScoreChanged,
     this.height = 30,
     this.thumbColor,
     this.scoreDotColor,
@@ -108,8 +108,8 @@ class ScoreSliderState extends State<ScoreSlider> {
         calculatedScore <= this.widget.maxScore &&
         calculatedScore >= 0) {
       setState(() => _currentScore = calculatedScore);
-      if (this.widget.onScorChanged != null) {
-        this.widget.onScorChanged(_currentScore);
+      if (this.widget.onScoreChanged != null) {
+        this.widget.onScoreChanged(_currentScore);
       }
     }
   }

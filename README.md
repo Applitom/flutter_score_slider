@@ -22,7 +22,7 @@ import 'package:flutter_score_slider/flutter_score_slider.dart';
 
 ScoreSlider(
   maxScore: 10,
-  onScorChanged: (newScore) {
+  onScoreChanged: (newScore) {
     setState(() {
       _currentScore = newScore;
       });
