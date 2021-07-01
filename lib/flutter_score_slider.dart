@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 /// A Custom Slider componente that mainly used for selecting a Score.
 /// You can set a minimum and maximum score value and current score.
 /// Current score can also be null so the user can choose the score without and default score entered.
-/// 
+///
 /// Example
 /// ```dart
 /// ScoreSlider(
@@ -21,31 +21,31 @@ import 'package:flutter/material.dart';
 ///                },
 ///   )
 /// ```
-/// 
+///
 class ScoreSlider extends StatefulWidget {
   final double height;
-  final int score;
+  final int? score;
   final int maxScore;
   final int minScore;
-  final Color thumbColor;
-  final Color scoreDotColor;
-  final Color backgroundColor;
-  final Function(int value) onScoreChanged;
+  final Color? thumbColor;
+  final Color? scoreDotColor;
+  final Color? backgroundColor;
+  final Function(int value)? onScoreChanged;
 
   /// Create ScoreSlider Widgets.
-  /// 
+  ///
   /// You must provide [maxScore] parameter with the Maximum score allowed.
-  /// 
+  ///
   /// You can set also minimum score by using [minScore] Parameter. the defualt minScore is 0.
-  /// 
+  ///
   /// To get a call back when the user select score implement [onScoreChanged] callback
-  /// 
+  ///
   /// You can customize the Slider colors by using [thumbColor], [scoreDotColor] and [backgroundColor] parameter.
   /// If not specify, Colors will be take from the default ThemeData.
-  /// 
+  ///
   /// The default height of the Slider is 30, in order to set other height, use [height] parameter.
   ScoreSlider({
-    @required this.maxScore,
+    required this.maxScore,
     this.minScore = 0,
     this.score,
     this.onScoreChanged,
@@ -53,15 +53,14 @@ class ScoreSlider extends StatefulWidget {
     this.thumbColor,
     this.scoreDotColor,
     this.backgroundColor,
-  })  : assert(maxScore != null),
-        assert(minScore < maxScore);
+  }) : assert(minScore < maxScore);
 
   @override
   State<StatefulWidget> createState() => ScoreSliderState();
 }
 
 class ScoreSliderState extends State<ScoreSlider> {
-  int _currentScore;
+  int? _currentScore;
 
   @override
   void initState() {
@@ -70,7 +69,7 @@ class ScoreSliderState extends State<ScoreSlider> {
   }
 
   List<Widget> _dots(BoxConstraints size) {
-    List<Widget> dots = List<Widget>();
+    List<Widget> dots = [];
 
     double width =
         size.maxWidth / (this.widget.maxScore - this.widget.minScore + 1);
@@ -86,8 +85,10 @@ class ScoreSliderState extends State<ScoreSlider> {
           child: Center(
             child: CircleAvatar(
               backgroundColor: i == _currentScore
-                  ? this.widget.thumbColor ?? Theme.of(context).sliderTheme.thumbColor
-                  : this.widget.scoreDotColor ?? Theme.of(context).sliderTheme.activeTickMarkColor,
+                  ? this.widget.thumbColor ??
+                      Theme.of(context).sliderTheme.thumbColor
+                  : this.widget.scoreDotColor ??
+                      Theme.of(context).sliderTheme.activeTickMarkColor,
               radius: currentRadius,
             ),
           ),
@@ -108,9 +109,7 @@ class ScoreSliderState extends State<ScoreSlider> {
         calculatedScore <= this.widget.maxScore &&
         calculatedScore >= 0) {
       setState(() => _currentScore = calculatedScore);
-      if (this.widget.onScoreChanged != null) {
-        this.widget.onScoreChanged(_currentScore);
-      }
+      this.widget.onScoreChanged?.call(_currentScore!);
     }
   }
 
@@ -132,7 +131,8 @@ class ScoreSliderState extends State<ScoreSlider> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(100)),
-                color: (this.widget.backgroundColor ?? Theme.of(context).backgroundColor) ,
+                color: (this.widget.backgroundColor ??
+                    Theme.of(context).backgroundColor),
               ),
               height: this.widget.height,
               child: Stack(
